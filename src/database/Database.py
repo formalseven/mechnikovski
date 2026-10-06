@@ -18,15 +18,13 @@ class Database:
 
     @staticmethod
     async def query(query_chain):
-        response = await query_chain
-        return response.data
-        #try:
-          #  response = await query_chain
-         #   return response.data
-        #except Exception as err:
-          #  print("ERROR | Database error")
-         #   print(err)
-        #    raise Exception("Database error")
+        try:
+            response = await query_chain
+            return response.data
+        except Exception as err:
+            print("ERROR | Database error")
+            print(err)
+            raise Exception("Database error")
 
     @classmethod
     async def init(cls):

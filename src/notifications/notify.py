@@ -23,10 +23,13 @@ async def notify(bot: AsyncTeleBot):
             )
 
             notifications_lessons = get_notifications_lessons()
+            config = (await Database.query(
+                Database.db.table("config").select("online_mode").execute()
+            ))[0]
             for user in users:
                 for lesson in notifications_lessons:
                     if lesson.get("group") == 0 or lesson.get("group") == user.get("group"):
-                        await send_notification(lesson=lesson, chat_id=user.get("id"), bot=bot)
+                        await send_notification(lesson=lesson, chat_id=user.get("id"), bot=bot, online_mode=config.get("online_mode"))
         except Exception as error:
             print("Error | Notification error")
             print(error)
@@ -68,12 +71,14 @@ def get_active_lessons(day=None):
             )
         ]
 
-async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot):
+async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot, online_mode: bool):
     text = (
         f"⏰ *Нагадування\! Через 10 хвилин пара\!*\n\n"
         f"📘 *Предмет:* {escape_markdown(lesson.get('name'))}\n"
         f"🕒 *Початок о:* {lesson.get('time')}\n"
-        f"🔗 *Посилання:* [Приєднатися]({lesson.get('link')})"
+        + (
+        f"🔗 *Посилання:* [Приєднатися]({lesson.get('link')})" if online_mode else f"*Аудиторія:* {lesson.get('room')}"
+        )
     )
     try:
         await bot.send_message(
