@@ -54,7 +54,7 @@ async def exec(bot: async_telebot.AsyncTeleBot, message: types.Message):
         ),
         parse_mode="MarkdownV2",
         disable_web_page_preview=True)
-    week = get_current_week(now.date(TZ))
+    week = get_current_week(now.date())
 
     status_text = (
         "📊 *ЗВІТ ПРО СТАН СИСТЕМИ*\n"
