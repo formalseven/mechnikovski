@@ -42,8 +42,8 @@ async def exec(bot: async_telebot.AsyncTeleBot, message: types.Message):
     g1 = sum(1 for g in users if g["group"] == 1)
     g2 = sum(1 for g in users if g["group"] == 2)
 
-    now = datetime.datetime.now()
-    test_start = (now + datetime.timedelta(minutes=1)).strftime("%H:%M")
+    now = datetime.datetime.now(TZ)
+    test_start = (now + datetime.timedelta(minutes=10)).strftime("%H:%M")
     #Add test notification
     for user in users:
         await bot.send_message(chat_id=user.get("id"), text=(
