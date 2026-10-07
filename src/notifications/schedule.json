@@ -31,8 +31,8 @@
             "floor": 3
         },
         {
-            "time": "11:20",
-            "name": "Програмування",
+            "time": "12:50",
+            "name": "Програмування (Шестопалов)",
             "link": "https://us04web.zoom.us/j/76648060342?pwd=F7wBfGbfaG34jBUFWj3Uvw32Jmby28.1",
             "group": 1,
             "weeks": [
@@ -57,38 +57,38 @@
         },
         {
             "time": "09:30",
-            "name": "Програмування",
+            "name": "Програмування (Антоненко)",
             "link": "https://us02web.zoom.us/j/83353936242?pwd=YldwMXBUY0wvZXd3NW9MaWNyM09Cdz09",
             "group": 2,
             "weeks": [],
-            "room": 38,
+            "room": 40,
             "floor": 1
         },
         {
             "time": "09:30",
-            "name": "Програмування",
+            "name": "Програмування (Шестопалов)",
             "link": "https://us04web.zoom.us/j/76648060342?pwd=F7wBfGbfaG34jBUFWj3Uvw32Jmby28.1",
             "group": 1,
             "weeks": [],
-            "room": 40,
+            "room": 38,
             "floor": 1
         },
         {
             "time": "11:20",
-            "name": "Програмування",
+            "name": "Програмування (Шестопалов)",
             "link": "https://us04web.zoom.us/j/76648060342?pwd=F7wBfGbfaG34jBUFWj3Uvw32Jmby28.1",
             "group": 1,
             "weeks": [],
-            "room": 40,
+            "room": 38,
             "floor": 1
         },
         {
             "time": "11:20",
-            "name": "Програмування",
+            "name": "Програмування (Антоненко)",
             "link": "https://us02web.zoom.us/j/83353936242?pwd=YldwMXBUY0wvZXd3NW9MaWNyM09Cdz09",
             "group": 2,
             "weeks": [],
-            "room": 38,
+            "room": 40,
             "floor": 1
             
 
@@ -135,7 +135,7 @@
             "floor": 2
         },
         {
-            "time": "09:30",
+            "time": "11:20",
             "name": "Вища математика(Скрипник)",
             "link": "https://meet.google.com/kyu-sgrx-mec?authuser=0&pli=1",
             "group": 0,
@@ -144,7 +144,7 @@
             "floor": 3
         },
         {
-            "time": "09:30",
+            "time": "12:50",
             "name": "Історія України",
             "link": "https://us04web.zoom.us/j/9743395633?pwd=UWxxMFlMbENneEZuVnk5MzljYlA0UT09",
             "group": 0,
@@ -235,7 +235,7 @@
             "floor": 2
         },
         {
-            "time": "11:20",
+            "time": "12:50",
             "name": "Фізкультура",
             "link": "https://us05web.zoom.us/j/5291963941?pwd=P1vZbkThbbvZnAMmnS5XEtugHZH86P.1",
             "group": 0,
