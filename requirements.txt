@@ -30,6 +30,7 @@ PyJWT==2.15.1
 pyTelegramBotAPI==4.32.0
 python-dotenv==1.2.1
 realtime==2.32.0
+redis==7.0.1
 requests==2.32.5
 storage3==2.32.0
 StrEnum==0.4.15
