@@ -22,7 +22,7 @@ async def notify(bot: AsyncTeleBot):
             )
 
             for user in users:
-                notifications_lessons = get_notifications_lessons(notify_time=user.get("notify_time"))
+                notifications_lessons = get_notifications_lessons(notify_time=user.get("notify_time"), user_id=user.get("id"))
                 for lesson in notifications_lessons:
                     if lesson.get("group") == 0 or lesson.get("group") == user.get("group"):
                         await send_notification(lesson=lesson, chat_id=user.get("id"), bot=bot, online_mode=user.get("online_mode"))
@@ -31,14 +31,14 @@ async def notify(bot: AsyncTeleBot):
             print(error)
         await asyncio.sleep(SLEEP_INTERVAL)
 
-def get_notifications_lessons(notify_time: int):
+def get_notifications_lessons(notify_time: int, user_id):
     active_lessons = get_active_lessons()
     notifications_lessons = []
     for lesson in active_lessons:
         hour, minute = map(int, lesson.get("time").split(":"))
         now = datetime.datetime.now(TZ)
         delta = datetime.timedelta(hours=hour, minutes=minute) - datetime.timedelta(hours=now.hour, minutes=now.minute)
-        id = "|".join([lesson.get("name"), lesson.get("time"), str(lesson.get("group")), str(now.date().isoformat())])
+        id = "|".join([lesson.get("name"), lesson.get("time"), str(lesson.get("group")), str(user_id), str(now.date().isoformat())])
         if delta.total_seconds() < 0:
             sent_notificatiotns.discard(id)
             continue
@@ -100,7 +100,4 @@ async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot, online_mode
             print(f"ERROR | Sending notifications got error. User ID = {chat_id}")
             print(err)
 
-    
-
-
-        
+                
