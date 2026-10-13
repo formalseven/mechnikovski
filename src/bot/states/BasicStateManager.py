@@ -17,4 +17,4 @@ class BasicStateManager:
         await redis_client.delete(f"{self.name}:::{id}")
 
     async def exists(self, id):
-            await redis_client.exists(f"{self.name}:::{id}")
+        return bool(await redis_client.exists(f"{self.name}:::{id}"))
