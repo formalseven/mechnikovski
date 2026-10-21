@@ -25,7 +25,7 @@ async def notify(bot: AsyncTeleBot):
                 notifications_lessons = get_notifications_lessons(notify_time=user.get("notify_time"), user_id=user.get("id"))
                 for lesson in notifications_lessons:
                     if lesson.get("group") == 0 or lesson.get("group") == user.get("group"):
-                        await send_notification(lesson=lesson, chat_id=user.get("id"), bot=bot, online_mode=user.get("online_mode"))
+                        await send_notification(lesson=lesson, chat_id=user.get("id"), bot=bot, online_mode=user.get("online_mode"), notify_time=user.get("notify_time"))
         except Exception as error:
             print("Error | Notification error")
             print(error)
@@ -68,9 +68,9 @@ def get_active_lessons(day=None):
             )
         ]
 
-async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot, online_mode: bool):
+async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot, online_mode: bool, notify_time):
     text = (
-        f"⏰ *Нагадування\! Через 10 хвилин пара\!*\n\n"
+        f"⏰ *Нагадування\! Через {notify_time} хвилин пара\!*\n\n"
         f"📘 *Предмет:* {escape_markdown(lesson.get('name'))}\n"
         f"🕒 *Початок о:* {lesson.get('time')}\n"
         + (
@@ -99,5 +99,3 @@ async def send_notification(lesson, chat_id: int, bot: AsyncTeleBot, online_mode
         except Exception as err:
             print(f"ERROR | Sending notifications got error. User ID = {chat_id}")
             print(err)
-
-                
